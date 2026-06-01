@@ -146,12 +146,12 @@ function App() {
     alt=""
     className="h-full w-full object-cover opacity-45"
   />
-
   <div className="absolute inset-0 bg-gradient-to-t from-[#050806]/90 via-[#050806]/40 to-transparent" />
-  <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#d7b46a]/20 to-transparent" /><div className="absolute bottom-12 left-8 right-8 grid grid-cols-5 gap-3 opacity-70">{[1, 2, 3, 4, 5].map((item) => <div key={item} className="h-56 rounded-t-full border border-[#d7b46a]/30 bg-[#0d1712]/80" />)}</div><div className="absolute bottom-8 left-6 right-6 h-4 rounded-full bg-[#d7b46a]/40 blur-sm" /></div><motion.img
+  
+  </div><motion.img
   src={logoSrc}
   alt="Veritas Jurix logo"
- className="absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
+ className="absolute z-10 left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
   <p className="text-xl tracking-[0.25em] text-[#d7b46a] uppercase">
     Veritas Jurix
   </p>
