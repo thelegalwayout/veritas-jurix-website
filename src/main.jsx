@@ -140,10 +140,18 @@ function App() {
   Practical Resolution.
 </h1><p className="mt-6 max-w-2xl text-lg leading-8 text-[#d8cfbf]">Veritas Jurix is a Lucknow-based litigation and advisory law firm assisting clients in criminal, civil, matrimonial, taxation, and broader dispute matters with preparation-led advocacy.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href="tel:+919513001005" className="rounded-full bg-[#d7b46a] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#050806] shadow-lg transition hover:bg-[#b9913f]">Call Now</a><button onClick={() => scrollTo("contact")} className="rounded-full border border-[#d7b46a]/70 px-7 py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] transition hover:bg-[#132219]">Send Query</button></div></motion.div><motion.div  style={{ scale: heroScale, borderRadius: heroRadius, y: heroY }}
   className="relative min-h-[560px] overflow-hidden border border-[#d7b46a]/30 bg-gradient-to-br from-[#050806] via-[#0b1712] to-[#130f08] p-4 shadow-2xl"
-><div className="absolute inset-4 rounded-[1.7rem] bg-[linear-gradient(135deg,rgba(215,180,106,0.20),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.06),transparent_45%),radial-gradient(circle_at_50%_20%,rgba(215,180,106,0.22),transparent_28%)]" /><div className="absolute inset-x-8 bottom-8 top-20 rounded-[2rem] border border-[#d7b46a]/20 bg-[#07110d]/60 backdrop-blur-sm"><div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#d7b46a]/20 to-transparent" /><div className="absolute bottom-12 left-8 right-8 grid grid-cols-5 gap-3 opacity-70">{[1, 2, 3, 4, 5].map((item) => <div key={item} className="h-56 rounded-t-full border border-[#d7b46a]/30 bg-[#0d1712]/80" />)}</div><div className="absolute bottom-8 left-6 right-6 h-4 rounded-full bg-[#d7b46a]/40 blur-sm" /></div><motion.img
+><div className="absolute inset-4 rounded-[1.7rem] bg-[linear-gradient(135deg,rgba(215,180,106,0.20),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.06),transparent_45%),radial-gradient(circle_at_50%_20%,rgba(215,180,106,0.22),transparent_28%)]" /><div className="absolute inset-x-8 bottom-8 top-20 overflow-hidden rounded-[2rem] border border-[#d7b46a]/20">
+  <img
+    src="/courthouse-bg.png"
+    alt=""
+    className="h-full w-full object-cover opacity-35"
+  />
+
+  <div className="absolute inset-0 bg-gradient-to-t from-[#050806]/90 via-[#050806]/40 to-transparent" />
+</div><div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#d7b46a]/20 to-transparent" /><div className="absolute bottom-12 left-8 right-8 grid grid-cols-5 gap-3 opacity-70">{[1, 2, 3, 4, 5].map((item) => <div key={item} className="h-56 rounded-t-full border border-[#d7b46a]/30 bg-[#0d1712]/80" />)}</div><div className="absolute bottom-8 left-6 right-6 h-4 rounded-full bg-[#d7b46a]/40 blur-sm" /></div><motion.img
   src={logoSrc}
   alt="Veritas Jurix logo"
- className="absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-[2.5rem] object-contain border border-[#d7b46a]/30 shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
+ className="absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
   <p className="text-xl tracking-[0.25em] text-[#d7b46a] uppercase">
     Veritas Jurix
   </p>
