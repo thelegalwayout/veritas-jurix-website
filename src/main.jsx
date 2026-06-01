@@ -144,7 +144,7 @@ function App() {
   <img
     src="/courthouse-bg.png"
     alt=""
-    className="h-full w-full object-cover opacity-35"
+    className="h-full w-full object-cover opacity-45"
   />
 
   <div className="absolute inset-0 bg-gradient-to-t from-[#050806]/90 via-[#050806]/40 to-transparent" />
