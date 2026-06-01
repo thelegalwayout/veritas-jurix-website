@@ -18,8 +18,8 @@ const practiceAreas = [
 ];
 
 const attorneys = [
-  { name: "Pradeep Singh", role: "Partner", photo: pradeepPhoto, focus: "Criminal litigation, matrimonial matters, taxation matters, legal drafting, advisory services, dispute resolution, and High Court strategy.", courts: "High Court of Allahabad, Lucknow Bench; District Courts; Tribunals; and Competent Authorities." },
-  { name: "Vijay Singh", role: "Partner", photo: vijayPhoto, focus: "Civil disputes, matrimonial matters, taxation matters, legal drafting, advisory services, and dispute resolution.", courts: "High Court of Allahabad, Lucknow Bench; District Courts; Tribunals; and Competent Authorities." }
+  { name: "Pradeep Singh", role: "Managing Partner", photo: pradeepPhoto, focus: "Criminal litigation, matrimonial matters, taxation matters, legal drafting, advisory services, dispute resolution, and High Court strategy.", courts: "High Court of Allahabad, Lucknow Bench; District Courts; Tribunals; and Competent Authorities." },
+  { name: "Vijay Singh", role: "Senior Partner", photo: vijayPhoto, focus: "Civil disputes, matrimonial matters, taxation matters, legal drafting, advisory services, and dispute resolution.", courts: "High Court of Allahabad, Lucknow Bench; District Courts; Tribunals; and Competent Authorities." }
 ];
 
 const insights = [
@@ -40,7 +40,6 @@ function App() {
   const [open, setOpen] = useState(false);
   const [accepted, setAccepted] = useState(localStorage.getItem("vj_disclaimer") === "accepted");
   const [activePage, setActivePage] = useState("home");
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", practiceArea: "", message: "" });
   const [status, setStatus] = useState("");
   const { scrollYProgress } = useScroll();
   const heroScale = useTransform(scrollYProgress, [0, 0.22], [1, 0.86]);
@@ -65,25 +64,26 @@ function App() {
     setAccepted(true);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setStatus("Submitting...");
-    const payload = { ...formData, submittedAt: new Date().toISOString(), source: "veritasjurix.com" };
-    if (leadEndpoint) {
-      try {
-        await fetch(leadEndpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-        setStatus("Thank you. Your query has been submitted.");
-        setFormData({ name: "", email: "", phone: "", practiceArea: "", message: "" });
-        return;
-      } catch (error) {
-        setStatus("Could not submit automatically. Opening email instead.");
-      }
-    }
+  const handleSubmit = (event) => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+
+  const name = data.get("name") || "Client";
+  const email = data.get("email") || "";
+  const phone = data.get("phone") || "";
+  const practiceArea = data.get("practiceArea") || "Not specified";
+  const message = data.get("message") || "";
+
+  const subject = encodeURIComponent(`Website Enquiry from ${name}`);
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPractice Area: ${practiceArea}\n\nQuery:\n${message}`
+  );
+
+  window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
+};
+
     const subject = encodeURIComponent(`Website Enquiry from ${formData.name || "Client"}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPractice Area: ${formData.practiceArea || "Not specified"}\n\nQuery:\n${formData.message}`);
     window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
@@ -106,14 +106,14 @@ function App() {
   const LeadForm = ({ compact = false, title = "Contact / Query Form" }) => (
     <form onSubmit={handleSubmit} className={compact ? "mt-8 grid gap-4 md:grid-cols-2" : "mt-8 space-y-4 border-t border-[#223329] pt-6"}>
       <h3 className={compact ? "text-2xl font-semibold text-[#d7b46a] md:col-span-2" : "text-xl font-semibold text-[#d7b46a]"}>{title}</h3>
-      <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className="form-field" />
-      <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Email ID" className="form-field" />
-      <input name="phone" value={formData.phone} onChange={handleChange} required placeholder="Phone Number" className="form-field" />
-      <select name="practiceArea" value={formData.practiceArea} onChange={handleChange} className="form-field">
+      <input name="name" required placeholder="Your Name" className="form-field" />
+      <input name="email" type="email" required placeholder="Email ID" className="form-field" />
+      <input name="phone" required placeholder="Phone Number" className="form-field" />
+      <select name="practiceArea" className="form-field">
         <option value="">Select Practice Area</option>
         {practiceAreas.map((area) => <option key={area.slug} value={area.title}>{area.title}</option>)}
       </select>
-      <textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Briefly describe your query" rows="5" className={`form-field ${compact ? "md:col-span-2" : ""}`} />
+      <textarea name="message" required placeholder="Briefly describe your query" rows="5" className={`form-field ${compact ? "md:col-span-2" : ""}`} />
       <button type="submit" className={`flex items-center justify-center gap-2 rounded-full bg-[#d7b46a] px-6 py-4 text-sm font-semibold uppercase tracking-widest text-[#050806] transition hover:bg-[#b9913f] ${compact ? "md:col-span-2" : "w-full"}`}><Send size={18} /> Submit Query</button>
       {status && <p className={`text-sm leading-6 text-[#d7b46a] ${compact ? "md:col-span-2" : ""}`}>{status}</p>}
       <p className={`text-xs leading-5 text-[#b7aa95] ${compact ? "md:col-span-2" : ""}`}>Your details are used only to respond to your query. Please do not share confidential information until an advocate-client relationship is formally established.</p>
