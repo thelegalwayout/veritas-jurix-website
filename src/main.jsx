@@ -64,8 +64,6 @@ function App() {
     setAccepted(true);
   };
 
-  };
-
   const handleSubmit = (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
@@ -76,10 +74,6 @@ function App() {
   const practiceArea = data.get("practiceArea") || "Not specified";
   const message = data.get("message") || "";
 
-  const subject = encodeURIComponent(`Website Enquiry from ${name}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPractice Area: ${practiceArea}\n\nQuery:\n${message}`
-  );
 
   window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
 };
