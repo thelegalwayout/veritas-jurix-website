@@ -65,24 +65,23 @@ function App() {
   };
 
   const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
 
-  const name = data.get("name") || "Client";
-  const email = data.get("email") || "";
-  const phone = data.get("phone") || "";
-  const practiceArea = data.get("practiceArea") || "Not specified";
-  const message = data.get("message") || "";
+    const name = data.get("name") || "Client";
+    const email = data.get("email") || "";
+    const phone = data.get("phone") || "";
+    const practiceArea = data.get("practiceArea") || "Not specified";
+    const message = data.get("message") || "";
 
+    const subject = encodeURIComponent(`Website Enquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPractice Area: ${practiceArea}\n\nQuery:\n${message}`
+    );
 
-  window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
-};
-
-    const subject = encodeURIComponent(`Website Enquiry from ${formData.name || "Client"}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPractice Area: ${formData.practiceArea || "Not specified"}\n\nQuery:\n${formData.message}`);
     window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
   };
-
+  
   const scrollTo = (id) => {
     setActivePage("home");
     setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 50);
