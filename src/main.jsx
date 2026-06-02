@@ -64,24 +64,36 @@ function App() {
     setAccepted(true);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    const name = data.get("name") || "Client";
-    const email = data.get("email") || "";
-    const phone = data.get("phone") || "";
-    const practiceArea = data.get("practiceArea") || "Not specified";
-    const message = data.get("message") || "";
+  setSubmitted(false);
+  setStatus("");
+  setLoading(true);
 
-    const subject = encodeURIComponent(`Website Enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPractice Area: ${practiceArea}\n\nQuery:\n${message}`
-    );
+  const formData = new FormData(event.currentTarget);
 
-    window.location.href = `mailto:support@veritasjurix.com?subject=${subject}&body=${body}`;
-  };
-  
+  try {
+    const response = await fetch("https://formspree.io/f/xzdwngjg", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      event.currentTarget.reset();
+    } else {
+      setStatus("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    setStatus("Something went wrong. Please try again.");
+  }
+
+  setLoading(false);
+};
   const scrollTo = (id) => {
     setActivePage("home");
     setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 50);
@@ -95,11 +107,10 @@ function App() {
   };
 
   const activePractice = practiceAreas.find((area) => area.slug === activePage);
-
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const LeadForm = ({ compact = false, title = "Contact / Query Form" }) => (
-    <form
-  action="https://formspree.io/f/xzdwngjg"
-  method="POST" className={compact ? "mt-8 grid gap-4 md:grid-cols-2" : "mt-8 space-y-4 border-t border-[#223329] pt-6"}>
+    <form onSubmit={handleSubmit} className={compact ? "mt-8 grid gap-4 md:grid-cols-2" : "mt-8 space-y-4 border-t border-[#223329] pt-6"}>
       <h3 className={compact ? "text-2xl font-semibold text-[#d7b46a] md:col-span-2" : "text-xl font-semibold text-[#d7b46a]"}>{title}</h3>
       <input name="name" required placeholder="Your Name" className="form-field" />
       <input name="email" type="email" required placeholder="Email ID" className="form-field" />
@@ -114,8 +125,19 @@ function App() {
       name="_subject"
       value="New Website Enquiry - Veritas Jurix"
       />
-      <button type="submit" className={`flex items-center justify-center gap-2 rounded-full bg-[#d7b46a] px-6 py-4 text-sm font-semibold uppercase tracking-widest text-[#050806] transition hover:bg-[#b9913f] ${compact ? "md:col-span-2" : "w-full"}`}><Send size={18} /> Submit Query</button>
-      {status && <p className={`text-sm leading-6 text-[#d7b46a] ${compact ? "md:col-span-2" : ""}`}>{status}</p>}
+      <button
+  type="submit"
+  disabled={loading}
+  className={`flex items-center justify-center gap-2 rounded-full bg-[#d7b46a] px-6 py-4 text-sm font-semibold uppercase tracking-widest text-[#050806] transition hover:bg-[#b9913f] disabled:opacity-60 ${compact ? "md:col-span-2" : "w-full"}`}
+    >
+  <Send size={18} />
+ {loading ? "Sending..." : "Submit Query"}
+    </button>
+      {submitted && (
+  <p className={`rounded-2xl border border-[#d7b46a]/30 bg-[#050806] p-4 text-sm leading-6 text-[#d7b46a] ${compact ? "md:col-span-2" : ""}`}>
+    Thank you. Your enquiry has been received. We will get back to you shortly.
+  </p>
+)}
       <p className={`text-xs leading-5 text-[#b7aa95] ${compact ? "md:col-span-2" : ""}`}>Your details are used only to respond to your query. Please do not share confidential information until an advocate-client relationship is formally established.</p>
     </form>
   );
