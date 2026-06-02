@@ -97,7 +97,9 @@ function App() {
   const activePractice = practiceAreas.find((area) => area.slug === activePage);
 
   const LeadForm = ({ compact = false, title = "Contact / Query Form" }) => (
-    <form onSubmit={handleSubmit} className={compact ? "mt-8 grid gap-4 md:grid-cols-2" : "mt-8 space-y-4 border-t border-[#223329] pt-6"}>
+    <form
+  action="https://formspree.io/f/xzdwngjg"
+  method="POST" className={compact ? "mt-8 grid gap-4 md:grid-cols-2" : "mt-8 space-y-4 border-t border-[#223329] pt-6"}>
       <h3 className={compact ? "text-2xl font-semibold text-[#d7b46a] md:col-span-2" : "text-xl font-semibold text-[#d7b46a]"}>{title}</h3>
       <input name="name" required placeholder="Your Name" className="form-field" />
       <input name="email" type="email" required placeholder="Email ID" className="form-field" />
@@ -107,6 +109,11 @@ function App() {
         {practiceAreas.map((area) => <option key={area.slug} value={area.title}>{area.title}</option>)}
       </select>
       <textarea name="message" required placeholder="Briefly describe your query" rows="5" className={`form-field ${compact ? "md:col-span-2" : ""}`} />
+      <input
+      type="hidden"
+      name="_subject"
+      value="New Website Enquiry - Veritas Jurix"
+      />
       <button type="submit" className={`flex items-center justify-center gap-2 rounded-full bg-[#d7b46a] px-6 py-4 text-sm font-semibold uppercase tracking-widest text-[#050806] transition hover:bg-[#b9913f] ${compact ? "md:col-span-2" : "w-full"}`}><Send size={18} /> Submit Query</button>
       {status && <p className={`text-sm leading-6 text-[#d7b46a] ${compact ? "md:col-span-2" : ""}`}>{status}</p>}
       <p className={`text-xs leading-5 text-[#b7aa95] ${compact ? "md:col-span-2" : ""}`}>Your details are used only to respond to your query. Please do not share confidential information until an advocate-client relationship is formally established.</p>
