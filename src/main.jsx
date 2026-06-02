@@ -229,7 +229,74 @@ const handleSubmit = async (event) => {
         {open && <div className="border-t border-[#223329] bg-[#050806] px-5 py-4 md:hidden">{navItems.map((item) => <button key={item} onClick={() => scrollTo(item.toLowerCase().replaceAll(" ", "-"))} className="block w-full py-3 text-left text-sm uppercase tracking-[0.18em] text-[#efe7d8]">{item}</button>)}</div>}
       </header>
 
-      {activePractice ? <main><section className="relative px-5 py-16 md:py-24"><div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(215,180,106,0.18),transparent_32%),radial-gradient(circle_at_90%_30%,rgba(21,68,50,0.45),transparent_30%)]" /><div className="relative mx-auto max-w-7xl"><button onClick={() => scrollTo("practice-areas")} className="mb-8 rounded-full border border-[#d7b46a]/50 px-5 py-3 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] hover:bg-[#132219]">← Back to Practice Areas</button><div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}><p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d7b46a]">Practice Area</p><h1 className="mt-4 text-5xl font-semibold leading-tight text-[#f7ecd7] md:text-7xl">{activePractice.title}</h1><p className="mt-6 text-xl leading-9 text-[#d8cfbf]">{activePractice.headline}</p><p className="mt-5 leading-8 text-[#b7aa95]">{activePractice.intro}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href="tel:+919513001005" className="rounded-full bg-[#d7b46a] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#050806] shadow-lg transition hover:bg-[#b9913f]">Call Now</a><button onClick={() => scrollTo("contact")} className="rounded-full border border-[#d7b46a]/70 px-7 py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] transition hover:bg-[#132219]">Send Query</button></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="overflow-hidden rounded-[2.5rem] border border-[#d7b46a]/25 bg-[#0d1712] p-6 shadow-2xl"><img src={logoSrc} alt="Veritas Jurix logo" className="mb-6 h-44 w-full rounded-[2rem] object-cover opacity-85" /><h2 className="text-2xl font-semibold text-[#d7b46a]">Services include</h2><div className="mt-5 space-y-3">{activePractice.services.map((service) => <div key={service} className="flex items-center gap-3 rounded-2xl border border-[#223329] bg-[#050806] p-4"><ChevronRight className="text-[#d7b46a]" size={18} /><span>{service}</span></div>)}</div></motion.div></div></div></section><section className="border-y border-[#223329] bg-[#0d1712] px-5 py-16"><div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">{["Document Review", "Case Strategy", "Court Representation"].map((item) => <FloatingPanel key={item} className="rounded-[2rem] border border-[#223329] bg-[#050806] p-6"><h3 className="text-xl font-semibold text-[#f7ecd7]">{item}</h3><p className="mt-3 leading-7 text-[#d8cfbf]">Focused support designed according to the facts, urgency, and forum of the matter.</p></FloatingPanel>)}</div></section><section id="contact" className="mx-auto max-w-7xl px-5 py-24"><div className="rounded-[2rem] border border-[#223329] bg-[#0d1712] p-6 shadow-lg md:p-8"><h2 className="text-3xl font-semibold text-[#f7ecd7]">Contact Veritas Jurix for {activePractice.title}</h2><LeadForm compact title="Send a Query" /></div></section></main> : (
+      {activeInsight ? (
+  <main>
+    <section className="relative px-5 py-16 md:py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(215,180,106,0.18),transparent_32%),radial-gradient(circle_at_90%_30%,rgba(21,68,50,0.45),transparent_30%)]" />
+
+      <div className="relative mx-auto max-w-4xl">
+        <button
+          onClick={() => scrollTo("insights")}
+          className="mb-8 rounded-full border border-[#d7b46a]/50 px-5 py-3 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] hover:bg-[#132219]"
+        >
+          ← Back to Insights
+        </button>
+
+        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d7b46a]">
+          {activeInsight.category}
+        </p>
+
+        <h1 className="mt-4 text-4xl font-semibold leading-tight text-[#f7ecd7] md:text-6xl">
+          {activeInsight.title}
+        </h1>
+
+        <p className="mt-6 text-xl leading-9 text-[#d8cfbf]">
+          {activeInsight.summary}
+        </p>
+
+        <div className="mt-10 space-y-6 rounded-[2rem] border border-[#223329] bg-[#0d1712] p-6 text-base leading-8 text-[#d8cfbf] shadow-lg md:p-8">
+          {activeInsight.content.map((para, index) => (
+            <p key={index}>{para}</p>
+          ))}
+        </div>
+
+        <div className="mt-10 rounded-[2rem] border border-[#d7b46a]/30 bg-[#050806] p-6">
+          <h2 className="text-2xl font-semibold text-[#d7b46a]">
+            Need legal assistance?
+          </h2>
+          <p className="mt-3 leading-7 text-[#d8cfbf]">
+            You may contact Veritas Jurix for legal advice or representation in suitable matters.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="tel:+919513001005"
+              className="rounded-full bg-[#d7b46a] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#050806] hover:bg-[#b9913f]"
+            >
+              Call Now
+            </a>
+
+            <a
+              href="https://wa.me/919513001005"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-[#25D366] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] transition hover:bg-[#25D366] hover:text-[#050806]"
+            >
+              WhatsApp
+            </a>
+
+            <button
+              onClick={() => scrollTo("contact")}
+              className="rounded-full border border-[#d7b46a]/70 px-7 py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] hover:bg-[#132219]"
+            >
+              Send Query
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+) : activePractice ? <main><section className="relative px-5 py-16 md:py-24"><div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(215,180,106,0.18),transparent_32%),radial-gradient(circle_at_90%_30%,rgba(21,68,50,0.45),transparent_30%)]" /><div className="relative mx-auto max-w-7xl"><button onClick={() => scrollTo("practice-areas")} className="mb-8 rounded-full border border-[#d7b46a]/50 px-5 py-3 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] hover:bg-[#132219]">← Back to Practice Areas</button><div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}><p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d7b46a]">Practice Area</p><h1 className="mt-4 text-5xl font-semibold leading-tight text-[#f7ecd7] md:text-7xl">{activePractice.title}</h1><p className="mt-6 text-xl leading-9 text-[#d8cfbf]">{activePractice.headline}</p><p className="mt-5 leading-8 text-[#b7aa95]">{activePractice.intro}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href="tel:+919513001005" className="rounded-full bg-[#d7b46a] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#050806] shadow-lg transition hover:bg-[#b9913f]">Call Now</a><button onClick={() => scrollTo("contact")} className="rounded-full border border-[#d7b46a]/70 px-7 py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] transition hover:bg-[#132219]">Send Query</button></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="overflow-hidden rounded-[2.5rem] border border-[#d7b46a]/25 bg-[#0d1712] p-6 shadow-2xl"><img src={logoSrc} alt="Veritas Jurix logo" className="mb-6 h-44 w-full rounded-[2rem] object-cover opacity-85" /><h2 className="text-2xl font-semibold text-[#d7b46a]">Services include</h2><div className="mt-5 space-y-3">{activePractice.services.map((service) => <div key={service} className="flex items-center gap-3 rounded-2xl border border-[#223329] bg-[#050806] p-4"><ChevronRight className="text-[#d7b46a]" size={18} /><span>{service}</span></div>)}</div></motion.div></div></div></section><section className="border-y border-[#223329] bg-[#0d1712] px-5 py-16"><div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">{["Document Review", "Case Strategy", "Court Representation"].map((item) => <FloatingPanel key={item} className="rounded-[2rem] border border-[#223329] bg-[#050806] p-6"><h3 className="text-xl font-semibold text-[#f7ecd7]">{item}</h3><p className="mt-3 leading-7 text-[#d8cfbf]">Focused support designed according to the facts, urgency, and forum of the matter.</p></FloatingPanel>)}</div></section><section id="contact" className="mx-auto max-w-7xl px-5 py-24"><div className="rounded-[2rem] border border-[#223329] bg-[#0d1712] p-6 shadow-lg md:p-8"><h2 className="text-3xl font-semibold text-[#f7ecd7]">Contact Veritas Jurix for {activePractice.title}</h2><LeadForm compact title="Send a Query" /></div></section></main> : (
       <main id="home">
         <section className="relative min-h-[92vh] overflow-hidden px-5 py-12 md:py-20"><div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(5,8,6,0.98),rgba(8,23,17,0.88),rgba(5,8,6,0.98)),radial-gradient(circle_at_20%_20%,rgba(215,180,106,0.28),transparent_30%),radial-gradient(circle_at_80%_15%,rgba(31,89,64,0.7),transparent_34%)]" /><motion.div aria-hidden="true" className="absolute left-[-10%] top-20 h-[1px] w-[120%] bg-gradient-to-r from-transparent via-[#d7b46a]/60 to-transparent" animate={{ x: ["-20%", "20%", "-20%"] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} /><motion.div aria-hidden="true" className="absolute right-[-20%] top-1/3 h-[1px] w-[130%] rotate-[-18deg] bg-gradient-to-r from-transparent via-[#d7b46a]/45 to-transparent" animate={{ x: ["20%", "-15%", "20%"] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} /><motion.div aria-hidden="true" className="absolute bottom-24 left-[-15%] h-[1px] w-[120%] rotate-[12deg] bg-gradient-to-r from-transparent via-[#d7b46a]/35 to-transparent" animate={{ x: ["-10%", "15%", "-10%"] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} /><div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.02fr_0.98fr]"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}><p className="mb-6 text-base font-semibold uppercase tracking-[0.45em] text-[#d7b46a]">TRUTH • STRATEGY • RESOLUTION</p><h1 className="max-w-3xl text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] text-[#f7ecd7]">
   Strategic Counsel.
