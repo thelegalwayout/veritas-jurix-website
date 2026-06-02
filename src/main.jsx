@@ -340,7 +340,7 @@ const handleSubmit = async (event) => {
   </div><motion.img
   src={logoSrc}
   alt="Veritas Jurix logo"
- className="absolute z-10 left-1/2 top-8 h-48 w-48 md:h-72 md:w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
+ className="absolute z-10 left-1/2 top-8 h-44 w-44 -translate-x-1/2 md:h-72 md:w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
   <p className="text-xl tracking-[0.25em] text-[#d7b46a] uppercase">
     Veritas Jurix
   </p>
