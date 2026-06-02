@@ -176,6 +176,7 @@ const handleSubmit = async (event) => {
   };
 
   const activePractice = practiceAreas.find((area) => area.slug === activePage);
+  const activeInsight = insights.find((post) => post.slug === activePage);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const LeadForm = ({ compact = false, title = "Contact / Query Form" }) => (
