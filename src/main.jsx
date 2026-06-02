@@ -23,9 +23,78 @@ const attorneys = [
 ];
 
 const insights = [
-  { title: "Anticipatory Bail: What Clients Should Prepare Before Filing", category: "Criminal Law", summary: "A brief guide on documents, facts, urgency, and procedural preparation before seeking protective relief." },
-  { title: "Property Disputes: Why Injunction Strategy Matters", category: "Civil Litigation", summary: "Understanding interim protection, possession documents, title papers, and court-ready pleadings." },
-  { title: "Matrimonial Litigation: Balancing Settlement and Court Proceedings", category: "Family Law", summary: "A practical note on divorce, maintenance, custody, mediation, and careful documentation." }
+  {
+    slug: "anticipatory-bail",
+    title: "Anticipatory Bail Under Indian Law: Key Considerations",
+    category: "Criminal Law",
+    summary: "A practical overview of what clients should prepare before seeking anticipatory bail.",
+    content: [
+      "Anticipatory bail is a preventive legal remedy available to a person who apprehends arrest in connection with a criminal accusation.",
+      "Before filing, it is important to collect the FIR or complaint details, relevant documents, chronology of events, previous communication, and facts showing cooperation.",
+      "Courts generally consider the nature of allegations, role attributed to the applicant, possibility of cooperation with investigation, and whether custodial interrogation appears necessary.",
+      "Every matter depends on its own facts. Proper legal advice should be taken before initiating proceedings."
+    ]
+  },
+  {
+    slug: "legal-notice",
+    title: "What To Do After Receiving A Legal Notice",
+    category: "General Litigation",
+    summary: "Steps to take after receiving a civil, criminal, matrimonial, property, or commercial legal notice.",
+    content: [
+      "A legal notice should not be ignored. It may contain allegations, demands, timelines, and proposed legal action.",
+      "The first step is to preserve the envelope, notice copy, attachments, emails, messages, agreements, payment records, and any previous communication.",
+      "A reply should be prepared carefully because it may later be relied upon in court proceedings.",
+      "Avoid emotional or informal responses. A legally structured reply can clarify facts and protect your position."
+    ]
+  },
+  {
+    slug: "property-disputes-injunctions",
+    title: "Property Disputes And Injunctions: A Practical Guide",
+    category: "Civil Litigation",
+    summary: "Understanding possession, documents, title papers, and interim protection in property disputes.",
+    content: [
+      "Property disputes often involve possession, title, boundaries, inheritance, sale documents, or interference by another party.",
+      "In urgent cases, a party may seek interim protection from the court to prevent dispossession, construction, alienation, or interference.",
+      "Useful documents include sale deeds, revenue records, mutation documents, photographs, tax receipts, electricity bills, and possession-related evidence.",
+      "The strength of a property case often depends on documentation, chronology, and timely legal action."
+    ]
+  },
+  {
+    slug: "mutual-consent-divorce",
+    title: "Divorce By Mutual Consent: Process And Timelines",
+    category: "Family Law",
+    summary: "A simple overview of mutual consent divorce, settlement terms, and court process.",
+    content: [
+      "Divorce by mutual consent is usually considered when both spouses agree to dissolve the marriage and settle their disputes.",
+      "Important settlement points may include maintenance, alimony, child custody, visitation, return of articles, pending cases, and future claims.",
+      "The petition should clearly record the settlement terms to avoid disputes later.",
+      "The actual timeline depends on facts, court schedule, statutory requirements, and judicial discretion."
+    ]
+  },
+  {
+    slug: "cheque-bounce-cases",
+    title: "Cheque Bounce Cases Under NI Act",
+    category: "Commercial Litigation",
+    summary: "Basic procedural points involved in cheque dishonour matters.",
+    content: [
+      "Cheque bounce matters usually require careful attention to dates, bank return memo, legal notice, service proof, and limitation periods.",
+      "The complainant should preserve the cheque, return memo, notice, postal receipts, tracking report, invoices, agreements, and payment records.",
+      "The accused should review whether the cheque was issued for a legally enforceable debt or liability and whether procedural requirements were followed.",
+      "Legal advice should be taken quickly because limitation periods are important in cheque dishonour cases."
+    ]
+  },
+  {
+    slug: "tax-notices",
+    title: "Responding To Tax Notices: Common Mistakes To Avoid",
+    category: "Taxation",
+    summary: "Common mistakes people make after receiving a tax notice or compliance communication.",
+    content: [
+      "Tax notices should be reviewed carefully with reference to the section, assessment year, deadline, and documents requested.",
+      "Common mistakes include ignoring the notice, submitting incomplete replies, missing deadlines, or sending inconsistent explanations.",
+      "Relevant records such as returns, computation, bank statements, invoices, notices, replies, and previous orders should be organized before responding.",
+      "A structured reply can help clarify the factual and legal position before the competent authority."
+    ]
+  }
 ];
 
 const navItems = ["About", "Practice Areas", "Team", "Insights", "Contact"];
