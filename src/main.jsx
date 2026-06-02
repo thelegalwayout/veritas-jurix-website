@@ -276,15 +276,6 @@ const handleSubmit = async (event) => {
               Call Now
             </a>
 
-            <a
-              href="https://wa.me/919513001005"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-[#25D366] px-7 py-4 text-center text-sm font-semibold uppercase tracking-widest text-[#25D366] transition hover:bg-[#25D366] hover:text-[#050806]"
-            >
-              WhatsApp
-            </a>
-
             <button
               onClick={() => scrollTo("contact")}
               className="rounded-full border border-[#d7b46a]/70 px-7 py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a] hover:bg-[#132219]"
@@ -340,7 +331,7 @@ const handleSubmit = async (event) => {
   </div><motion.img
   src={logoSrc}
   alt="Veritas Jurix logo"
- className="absolute z-10 left-1/2 top-8 h-44 w-44 -translate-x-1/2 md:h-72 md:w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
+ className="absolute z-10 left-1/2 top-8 h-48 w-48 -translate-x-1/2 md:h-72 md:w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
   <p className="text-xl tracking-[0.25em] text-[#d7b46a] uppercase">
     Veritas Jurix
   </p>
