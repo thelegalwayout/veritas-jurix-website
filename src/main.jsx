@@ -143,7 +143,7 @@ const handleSubmit = async (event) => {
   );
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#050806] text-[#efe7d8] selection:bg-[#d7b46a] selection:text-[#050806]">
+    <div className="min-h-screen overflow-hidden bg-[#050806] pb-16 text-[#efe7d8] selection:bg-[#d7b46a] selection:text-[#050806] md:pb-0">
       {!accepted && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
           <motion.div initial={{ opacity: 0, y: 20, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} className="max-w-2xl rounded-[2rem] border border-[#d7b46a]/30 bg-[#0d1712] p-6 shadow-2xl md:p-8">
@@ -228,6 +228,24 @@ const handleSubmit = async (event) => {
 >
   <span className="text-2xl text-white">💬</span>
 </a>
+      <div className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 border-t border-[#223329] bg-[#050806] md:hidden">
+  <a
+    href="tel:+919513001005"
+    className="flex items-center justify-center gap-2 border-r border-[#223329] py-4 text-sm font-semibold uppercase tracking-widest text-[#d7b46a]"
+  >
+    📞 Call Now
+  </a>
+
+  <a
+    href="https://wa.me/919513001005"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center justify-center gap-2 py-4 text-sm font-semibold uppercase tracking-widest text-[#25D366]"
+  >
+    💬 WhatsApp
+  </a>
+</div>
+      
       <footer className="border-t border-[#223329] bg-[#0d1712]"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 py-8 text-sm text-[#b7aa95] md:flex-row"><p>© 2026 Veritas Jurix. All rights reserved.</p><p>This website is for general information only and does not constitute legal advice.</p></div></footer>
     </div>
   );
