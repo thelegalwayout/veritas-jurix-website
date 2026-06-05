@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://veritasjurix.com/sitemap.xml
+Host: veritasjurix.com
