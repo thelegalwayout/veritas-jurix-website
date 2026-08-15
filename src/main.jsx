@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import "./styles.css";
 
 const logoSrc = "/logo.png";
-const pradeepPhoto = "/pradeep-singh.png";
+const pradeepPhoto = "/pradeep_singh1.png";
 const vijayPhoto = "/vijay-singh.png";
 
 const practiceAreas = [
