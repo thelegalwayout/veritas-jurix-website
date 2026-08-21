@@ -410,7 +410,9 @@ const handleSubmit = async (event) => {
   </a>
 </div>
       
-      <footer className="border-t border-[#223329] bg-[#0d1712]"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 py-8 text-sm text-[#b7aa95] md:flex-row"><p>© 2026 Veritas Jurix. All rights reserved.</p><p>This website is for general information only and does not constitute legal advice.</p></div></footer>
+      <footer className="border-t border-[#223329] bg-[#0d1712]"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 py-8 text-sm text-[#b7aa95] md:flex-row"><p>
+  © 2026 Veritas Jurix<sup className="ml-0.5 text-[0.55em] align-super">®</sup>. All rights reserved.
+</p><p>This website is for general information only and does not constitute legal advice.</p></div></footer>
     </div>
   );
 }
