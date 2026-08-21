@@ -229,7 +229,7 @@ const handleSubmit = async (event) => {
   src={logoSrc}
   alt="Veritas Jurix logo"
   className="h-16 w-16 rounded-xl object-contain md:h-16 md:w-16"/><div><div className="text-sm font-semibold uppercase tracking-[0.12em] text-[#d7b46a] md:text-lg">
-  Veritas Jurix<sup className="ml-0.5 text-[0.45em] align-super">®</sup>
+  Veritas Jurix<sup className="ml-1 text-[0.65em] align-super">®</sup>
 </div><div className="hidden md:block text-xs uppercase tracking-[0.22em] text-[#b7aa95]">Advocates & Legal Consultants</div></div></button><nav className="hidden items-center gap-8 md:flex">{navItems.map((item) => <button key={item} onClick={() => scrollTo(item.toLowerCase().replaceAll(" ", "-"))} className="text-sm uppercase tracking-[0.18em] text-[#efe7d8] hover:text-[#d7b46a]">{item}</button>)}</nav><button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">{open ? <X /> : <Menu />}</button></div>
         {open && <div className="border-t border-[#223329] bg-[#050806] px-5 py-4 md:hidden">{navItems.map((item) => <button key={item} onClick={() => scrollTo(item.toLowerCase().replaceAll(" ", "-"))} className="block w-full py-3 text-left text-sm uppercase tracking-[0.18em] text-[#efe7d8]">{item}</button>)}</div>}
       </header>
@@ -338,7 +338,7 @@ const handleSubmit = async (event) => {
   alt="Veritas Jurix logo"
  className="absolute z-10 left-1/2 top-8 h-44 w-44 -translate-x-1/2 md:h-72 md:w-72 -translate-x-1/2 rounded-[2.5rem] border border-[#d7b46a]/30 object-contain shadow-2xl drop-shadow-[0_0_45px_rgba(215,180,106,0.45)]" animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} /><div className="absolute inset-x-8 bottom-8 text-center">
  <p className="text-xl tracking-[0.25em] text-[#d7b46a] uppercase">
-  Veritas Jurix<sup className="ml-0.5 text-[0.45em] align-super">®</sup>
+  Veritas Jurix<sup className="ml-1 text-[0.65em] align-super">®</sup>
 </p>
   <p className="mt-2 text-sm tracking-[0.35em] text-[#d8cfbf] uppercase">
     Advocates & Legal Consultants
@@ -411,7 +411,7 @@ const handleSubmit = async (event) => {
 </div>
       
       <footer className="border-t border-[#223329] bg-[#0d1712]"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 py-8 text-sm text-[#b7aa95] md:flex-row"><p>
-  © 2026 Veritas Jurix<sup className="ml-0.5 text-[0.55em] align-super">®</sup>. All rights reserved.
+  © 2026 Veritas Jurix<sup className="ml-1 text-[0.65em] align-super">®</sup>. All rights reserved.
 </p><p>This website is for general information only and does not constitute legal advice.</p></div></footer>
     </div>
   );
